@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# ensure you set the executable bit on the file with `chmod u+x install.sh`
 
 # If you remove the .example extension from the file, once your workspace is created and the contents of this
 # repo are copied into it, this script will execute.  This will happen in place of the default behavior of the workspace system,
@@ -25,3 +24,7 @@ while read df; do
   mkdir -p "$(dirname "$link")"
   ln -sf "$df" "$link"
 done
+
+GRPCURL_VERSION=1.8.9
+curl -L https://github.com/fullstorydev/grpcurl/releases/download/v${GRPCURL_VERSION}/grpcurl_${GRPCURL_VERSION}_linux_x86_64.tar.gz \
+  | tar -xz -C $HOME/.local/bin grpcurl
